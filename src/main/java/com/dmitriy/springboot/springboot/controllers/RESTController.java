@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("/api")
 public class RESTController {
 
-    private EmployeeService service;
+    private final EmployeeService service;
 
     @Autowired
     public RESTController(EmployeeService service) {
@@ -34,7 +34,7 @@ public class RESTController {
 //            throw new NoSuchEmployeeException("There is no Employee with id = " +
 //                    id + " in DB");
 //        }
-
+        System.out.println("get Employee");
         return emp;
     }
 
@@ -52,15 +52,15 @@ public class RESTController {
 
     @DeleteMapping("/employees/{id}")
     public String deleteEmployee(@PathVariable int id) {
-        Employee employeeToDelete = service.getEmployee(id);
 
+//        Employee employeeToDelete = service.getEmployee(id);
 //        if (employeeToDelete == null) {
 //        throw new  NoSuchEmployeeException("There is no Employee with id = " +
 //                id + " in DB)");
 //        }
 
         service.deleteEmployee(id);
-        return "Emplyee with id = " + id + " was deleted";
+        return "Emplyee with id = " + id + " was deletedd";
     }
 
 
